@@ -37,7 +37,7 @@ class CalculatorLogic {
     }
 
     func calculateResult(input: Double) -> Double? {
-        // Example case user goes like : 1 + =
+        // Example case -> user goes like : 1 + =
         if inputValue == nil {
             inputValue = input
         }
@@ -78,6 +78,7 @@ class CalculatorLogic {
         waitingActionOperationTag = nil
         pendingOperationTag = nil
         pendingValue = nil
+        inputValue = nil
     }
 
 

@@ -16,23 +16,23 @@ class DashboardViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
-        stackView.axis = .vertical
         stackView.spacing = stackViewSpacing
+        stackView.axis = .vertical
         return stackView
     }()
 
-    private let input: UITextField = {
+    private lazy var input: UITextField = {
         let input = UITextField()
         input.translatesAutoresizingMaskIntoConstraints = false
         input.attributedPlaceholder = NSAttributedString(string: "0", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        input.tintColor = UIColor.black
-        // Pasting/copying should be enabled, for this one should implement the UITextField Delegate
-        input.isUserInteractionEnabled = false
-        input.textColor = UIColor.white
         input.font = UIFont.systemFont(ofSize: (UIScreen.main.bounds.width / 100) * 25, weight: .thin)
-        input.textAlignment = .right
         input.contentVerticalAlignment = .bottom
         input.adjustsFontSizeToFitWidth = true
+        // Pasting/copying should be enabled, for this one should implement the UITextField Delegate
+        input.isUserInteractionEnabled = false
+        input.tintColor = backgroundColor
+        input.textColor = UIColor.white
+        input.textAlignment = .right
         input.minimumFontSize = 30
         return input
     }()
@@ -46,12 +46,13 @@ class DashboardViewController: UIViewController {
         stackView.alignment = .fill
         return stackView
     }
-    private var calculatorInput: [[CalculatorButtonInput]] = CalculatorInput().input
-    private let calculatorButtonTapSound: SystemSoundID = 1104
-    private lazy var calculatorLogic: CalculatorLogic = CalculatorLogic()
-    private let numberFormater = Formatter()
+    private var calculatorInput: [[CalculatorButtonInputModel]] = CalculatorInput().input
     private let stackViewSpacing = (UIScreen.main.bounds.width / 100) * 3.5
     private let bottomSpacing = (UIScreen.main.bounds.height / 100) * 3
+    private lazy var calculatorLogic: CalculatorLogic = CalculatorLogic()
+    private let calculatorButtonTapSound: SystemSoundID = 1104
+    private let backgroundColor = UIColor.black
+    private let numberFormater = Formatter()
 
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -62,22 +63,22 @@ class DashboardViewController: UIViewController {
 
     // MARK: - View Setup
     private func setupView() {
-        view.backgroundColor = UIColor.black
-        input.backgroundColor = UIColor.black
+        input.backgroundColor = backgroundColor
+        view.backgroundColor = backgroundColor
     }
 
     private func setupContent() {
         view.addSubview(input)
         view.addSubview(verticalStackView)
         addConstraints()
-        setupCalculator()
+        setupCalculatorView()
     }
 
-    private func setupCalculator() {
+    private func setupCalculatorView() {
         for row in calculatorInput {
             let stackView = horizontalStackView
             for item in row {
-                let button = setupButton(for: item)
+                let button = setupButtonCalculator(for: item)
                 stackView.addArrangedSubview(button)
 
                 if item.isWideButton {
@@ -88,7 +89,7 @@ class DashboardViewController: UIViewController {
         }
     }
 
-    private func setupButton(for input: CalculatorButtonInput) -> CalculatorButton{
+    private func setupButtonCalculator(for input: CalculatorButtonInputModel) -> CalculatorButton{
            let button = CalculatorButton(style: input.style, isWideButton: input.isWideButton)
            button.addTarget(self, action: #selector(inputTapped), for: .touchUpInside)
            button.setTitle(input.title, for: .normal)
@@ -97,15 +98,15 @@ class DashboardViewController: UIViewController {
        }
 
     private func addConstraints() {
-        input.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        input.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         input.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
         input.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35).isActive = true
+        input.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        input.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
 
-        verticalStackView.topAnchor.constraint(equalTo: input.bottomAnchor, constant: 10).isActive = true
-        verticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
-        verticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
         verticalStackView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant:  -bottomSpacing).isActive = true
+        verticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        verticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+        verticalStackView.topAnchor.constraint(equalTo: input.bottomAnchor, constant: 10).isActive = true
         let verticalStackViewBottomAnchor = verticalStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomSpacing)
         verticalStackViewBottomAnchor.priority = UILayoutPriority(rawValue: 950)
         verticalStackViewBottomAnchor.isActive = true
@@ -114,18 +115,23 @@ class DashboardViewController: UIViewController {
     // MARK: - Input handling
     @objc private func inputTapped(_ inputButton: CalculatorButton) {
         AudioServicesPlaySystemSound(calculatorButtonTapSound)
-        handleInput(tag: inputButton.tag, input: input.text?.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: " ", with: "") ?? "0")
+        let inputValue = prepareInputForProcessing(inputValue: input.text ?? "0")
+        handleInput(tag: inputButton.tag, input: inputValue)
         handleButtonHighLight(inputButton: inputButton)
     }
 
+    private func prepareInputForProcessing(inputValue: String) -> String {
+        inputValue.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: " ", with: "")
+    }
+
     private func handleInput(tag: Int, input: String) {
-        let doubleValue = numberFormater.doubleFormat(input) ?? 0
+        let doubleValue = numberFormater.stringToDouble(input) ?? 0
         if (0...9).contains(tag) {
             updateNumber(tag: tag, stringValue: input)
         } else if tag == 10 {
             addComa(inputValue: input)
         } else if (11...14).contains(tag) {
-            updateOperation(tag: tag, doubleInput: doubleValue)
+            updateOperation(tag: tag, input: doubleValue)
         } else if tag == 15 {
             addPercentage(input: doubleValue)
         }  else if tag == 16 {
@@ -159,8 +165,8 @@ class DashboardViewController: UIViewController {
         }
     }
 
-    private func updateOperation(tag: Int, doubleInput: Double) {
-        if let result = calculatorLogic.updateOperation(tag: tag, input: doubleInput) {
+    private func updateOperation(tag: Int, input: Double) {
+        if let result = calculatorLogic.updateOperation(tag: tag, input: input) {
             updateInputWithDoubleValue(value: result)
         }
     }
@@ -188,7 +194,7 @@ class DashboardViewController: UIViewController {
 
     // MARK: - TextField updating
     private func updateInputWith(value: String) {
-        let formater = numberFormater.inputFormaterFor(stringValue: value)
+        let formater = numberFormater.userInputFormaterFor(stringValue: value)
 
         guard let doubleValue = Double(value) else {
             print("Update number: unable to parse String input to Double")
@@ -203,7 +209,7 @@ class DashboardViewController: UIViewController {
     }
 
     private func updateInputWithDoubleValue(value: Double) {
-        input.text = numberFormater.amount(value)
+        input.text = numberFormater.doubleToString(value)
     }
 
     // MARK: - UI changing actions

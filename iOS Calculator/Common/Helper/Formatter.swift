@@ -10,12 +10,8 @@ import Foundation
 
 class Formatter {
 
-    // MARK: - Properties
-    private lazy var maximumNumberOfDigits = maximumNumberOfCharachters - (maximumNumberOfCharachters / 4)
-    private let maximumNumberOfCharachters = 11
-
     // MARK: - Public Functions
-    func inputFormaterFor(stringValue: String) -> NumberFormatter{
+    func userInputFormaterFor(stringValue: String) -> NumberFormatter{
         let numberOfDecimials = Decimal(string: stringValue)
         let formater = NumberFormatter()
         formater.maximumIntegerDigits = 9 - (numberOfDecimials?.significantFractionalDecimalDigits ?? 0)
@@ -30,46 +26,35 @@ class Formatter {
         return formater
     }
 
-    func amount(_ amount: Double?) -> String? {
-        guard let amount = amount else { return nil}
-//        return formaterFor(value: amount).string(from: NSDecimalNumber(
-        return formaterFor(value: amount).string(from: NSDecimalNumber(string: String(amount)))
+    // MARK: - Value parsing
+    func doubleToString(_ value: Double?) -> String? {
+        guard let value = value else { return nil}
+        return formaterFor(value: value).string(from: NSDecimalNumber(value: value))
     }
 
-    func doubleFormat(_ amount: String?) -> Double? {
-        guard let amount = amount else { return nil}
-        return Double(amount)
+    func stringToDouble(_ value: String?) -> Double? {
+        guard let value = value else { return nil}
+        return Double(value)
     }
 
-    func getNumberOfItemsIn(value: Double) -> Int {
-        let numForm = formater(.decimal)
-        numForm.maximumIntegerDigits = 200
-        numForm.maximumFractionDigits = 200
+
+    // MARK: - Local functions
+    private func getNumberOfItemsIn(value: Double) -> Int {
+        let numForm = resultFormater(.decimal)
+        numForm.maximumIntegerDigits = 140
+        numForm.maximumFractionDigits = 140
         return numForm.string(from: NSNumber(value: Double(value)))?.count ?? 0
     }
 
-    // MARK: - Local functions
     private func formaterFor(value: Double) -> NumberFormatter {
-        if getNumberOfItemsIn(value: value) > maximumNumberOfCharachters {
-            return formater(.scientific)
+        if getNumberOfItemsIn(value: value) > 11 {
+            return resultFormater(.scientific)
         }
-        return formater(.decimal)
+        return resultFormater(.decimal)
     }
 
-    private func formaterFor(string: String) -> NumberFormatter {
-        if string.count > maximumNumberOfCharachters {
-            return formater(.scientific)
-        }
-        return formater(.decimal)
-    }
-
-    private func formater(_ type: NumberFormatter.Style) -> NumberFormatter {
+    private func resultFormater(_ type: NumberFormatter.Style) -> NumberFormatter {
         let formatter = NumberFormatter()
-        formatter.minimumIntegerDigits = 1
-        formatter.minimumFractionDigits = 0
-        formatter.groupingSeparator = " "
-        formatter.locale = Locale.current
-        formatter.numberStyle = type
         if type == .scientific {
             formatter.maximumIntegerDigits = 1
             formatter.maximumFractionDigits = 5
@@ -77,6 +62,11 @@ class Formatter {
             formatter.maximumIntegerDigits = 9
             formatter.maximumFractionDigits = 9
         }
+        formatter.minimumFractionDigits = 0
+        formatter.minimumIntegerDigits = 1
+        formatter.groupingSeparator = " "
+        formatter.locale = Locale.current
+        formatter.numberStyle = type
         return formatter
     }
 }
