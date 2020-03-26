@@ -32,7 +32,8 @@ class Formatter {
 
     func amount(_ amount: Double?) -> String? {
         guard let amount = amount else { return nil}
-        return formaterFor(value: amount).string(from: NSDecimalNumber(value: amount))
+//        return formaterFor(value: amount).string(from: NSDecimalNumber(
+        return formaterFor(value: amount).string(from: NSDecimalNumber(string: String(amount)))
     }
 
     func doubleFormat(_ amount: String?) -> Double? {
@@ -42,9 +43,9 @@ class Formatter {
 
     func getNumberOfItemsIn(value: Double) -> Int {
         let numForm = formater(.decimal)
-        numForm.maximumIntegerDigits = 12
-        numForm.maximumFractionDigits = 12
-        return numForm.string(from: NSNumber(value: value))?.count ?? 0
+        numForm.maximumIntegerDigits = 200
+        numForm.maximumFractionDigits = 200
+        return numForm.string(from: NSNumber(value: Double(value)))?.count ?? 0
     }
 
     // MARK: - Local functions
@@ -64,13 +65,18 @@ class Formatter {
 
     private func formater(_ type: NumberFormatter.Style) -> NumberFormatter {
         let formatter = NumberFormatter()
-        formatter.maximumIntegerDigits = 9
         formatter.minimumIntegerDigits = 1
-        formatter.maximumFractionDigits = 9
         formatter.minimumFractionDigits = 0
         formatter.groupingSeparator = " "
         formatter.locale = Locale.current
         formatter.numberStyle = type
+        if type == .scientific {
+            formatter.maximumIntegerDigits = 1
+            formatter.maximumFractionDigits = 5
+        } else {
+            formatter.maximumIntegerDigits = 9
+            formatter.maximumFractionDigits = 9
+        }
         return formatter
     }
 }

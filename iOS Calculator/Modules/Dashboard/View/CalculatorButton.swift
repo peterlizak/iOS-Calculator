@@ -38,7 +38,7 @@ class CalculatorButton: UIButton {
     }
 
     private func setupView() {
-        titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        titleLabel?.font = UIFont.systemFont(ofSize: (UIScreen.main.bounds.width / 100) * 9)
 
         backgroundColor = style.backgroundColor
         setTitleColor(style.titleColor, for: .normal)
