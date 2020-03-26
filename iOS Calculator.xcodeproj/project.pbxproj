@@ -20,6 +20,7 @@
 		D07BCFAF24297474000DF125 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07BCFAD24297474000DF125 /* DashboardViewController.xib */; };
 		D07BCFBD242A3D91000DF125 /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07BCFBC242A3D91000DF125 /* CalculatorButton.swift */; };
 		D07BCFC0242A44A1000DF125 /* CalculatorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07BCFBF242A44A1000DF125 /* CalculatorInput.swift */; };
+		D07C5C93242CD4F500B8DFE2 /* Decimial+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C5C92242CD4F500B8DFE2 /* Decimial+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D07BCFAD24297474000DF125 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		D07BCFBC242A3D91000DF125 /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
 		D07BCFBF242A44A1000DF125 /* CalculatorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorInput.swift; sourceTree = "<group>"; };
+		D07C5C92242CD4F500B8DFE2 /* Decimial+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimial+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				D05BA3AB242AC00600C4A1A2 /* UIView+Extension.swift */,
+				D07C5C92242CD4F500B8DFE2 /* Decimial+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				D05BA3AF242B76FB00C4A1A2 /* Formatter.swift in Sources */,
 				D07BCFAE24297474000DF125 /* DashboardViewController.swift in Sources */,
 				D05BA3A7242ABEA600C4A1A2 /* CalculatorButtonStyle.swift in Sources */,
+				D07C5C93242CD4F500B8DFE2 /* Decimial+Extension.swift in Sources */,
 				D05BA3A5242A716F00C4A1A2 /* CalculatorLogic.swift in Sources */,
 				D05BA3A9242ABED800C4A1A2 /* CalculatorButtonInput.swift in Sources */,
 				D07BCF97242970E7000DF125 /* SceneDelegate.swift in Sources */,

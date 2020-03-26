@@ -10,129 +10,110 @@ import Foundation
 import UIKit
 
 class CalculatorLogic {
-
+    
+    // MARK: - Properties
     private var numberFormater = Formatter()
     private var waitingActionOperationTag: Int?
     private var pendingOperationTag: Int?
-    private var currentInputValue: Double?
     private var pendingValue: Double?
+    private var inputValue: Double?
 
-    func handleInput(tag: Int, input: UITextField) {
-        if (0...9).contains(tag) {
-            updateNumber(tag: String(tag), input: input)
-        } else if tag == 10 {
-            addComa(input: input)
-        } else if (11...14).contains(tag) {
-            updateOperation(tag: tag, input: input)
-        } else if tag == 15 {
-            addPercentage(input: input)
-        } else if tag == 16 {
-            addOposite(input: input)
-        } else if tag == 17 {
-            resetInput(input: input)
-        } else if tag == 18 {
-            calculateResult(input: input)
-        }
-    }
-
-    private func updateNumber(tag: String, input: UITextField) {
-        if waitingActionOperationTag != nil {
-            pendingOperationTag = waitingActionOperationTag
-            waitingActionOperationTag = nil
-            input.text = ""
-        }
-
-        if let text = input.text, text != "0" {
-            if let repleacmentText = numberFormater.stringFormat(text + tag), repleacmentText.count < 12 {
-                input.text = repleacmentText
-                currentInputValue = numberFormater.doubleFormat(input.text)
-            }
-        }
-    }
-
-    private func addComa(input: UITextField) {
-        if waitingActionOperationTag != nil {
-            pendingOperationTag = waitingActionOperationTag
-            waitingActionOperationTag = nil
-            input.text = "0,"
-            return
-        }
-
-        if input.text?.contains(",") ?? true { return }
-
-        if let text = input.text, text.count != 0 {
-            input.text = text + ","
-        } else {
-            input.text = "0,"
-        }
-    }
-
-    private func updateOperation(tag: Int, input: UITextField) {
+    // MARK: - Public functions
+    func updateOperation(tag: Int, input: Double) -> Double {
         if pendingOperationTag == nil {
-            waitingActionOperationTag = tag
-            pendingValue = numberFormater.doubleFormat(input.text)
-            return
+            setWaitingOperationTag(tag: tag, pending: input, current: nil)
+            return input
         }
 
-        if let pendingTag = pendingOperationTag, let pendingValue = pendingValue, let currentValue = numberFormater.doubleFormat(input.text) {
-            input.text = executeOperation(tag: pendingTag, pendingValue: pendingValue, currentValue: currentValue)
-            self.pendingValue = numberFormater.doubleFormat(input.text)
-            waitingActionOperationTag = tag
-            pendingOperationTag = nil
+        guard let pendingTag = pendingOperationTag, let pendigValue = pendingValue else {
+            print("Update Operation error: pendingOperationTag or pendingValue is nil")
+            return input
         }
+
+        let resultValue = executeOperation(tag: pendingTag, pendingValue: pendigValue, currentValue: input)
+        setWaitingOperationTag(tag: tag, pending: resultValue, current: input)
+
+        return resultValue
     }
 
-    private func addPercentage(input: UITextField) {
-        if let inputValue = numberFormater.doubleFormat(input.text) {
-            input.text = numberFormater.amount(inputValue / 100.0)
+    func calculateResult(input: Double) -> Double? {
+        // Example case user goes like : 1 + =
+        if inputValue == nil {
+            inputValue = input
         }
+
+        guard let operationTag = pendingOperationTag ?? waitingActionOperationTag else {
+            print("Calculate result error: Operation tag not found")
+            return nil
+        }
+
+        guard let pendingValue = pendingValue, let inputValue = inputValue else {
+            print("Calculate result error: pending or input value is nil")
+            return nil
+        }
+
+        let resultVaue = executeOperation(tag: operationTag, pendingValue: pendingValue, currentValue: inputValue)
+        setWaitingOperationTag(tag: operationTag, pending: resultVaue, current: inputValue)
+
+        return resultVaue
     }
 
-    private func addOposite(input: UITextField) {
-        if let inputValue = numberFormater.doubleFormat(input.text) {
-            input.text = numberFormater.amount(inputValue * -1.0)
+    func updateNumber(tag: Int) -> Bool {
+        if waitingActionOperationTag != nil {
+            setPendingOperationTag()
+            return true
         }
+        return false
     }
 
-    private func resetInput(input: UITextField) {
+    func addPercentage(input: Double) -> Double {
+        return input / 100.0
+    }
+
+    func opposite(input: Double) -> Double {
+       return input * -1.0
+    }
+
+    func reset() {
         waitingActionOperationTag = nil
         pendingOperationTag = nil
         pendingValue = nil
-        input.text = ""
     }
 
-    private func calculateResult(input: UITextField) {
-        // INSTANCE INPUT CASE: 1 + =
-        if let tag = waitingActionOperationTag, let value = currentInputValue, let pendingValue = pendingValue {
-            input.text = executeOperation(tag: tag, pendingValue: value, currentValue: pendingValue)
-            currentInputValue = numberFormater.doubleFormat(input.text)
-        } else if let tag = waitingActionOperationTag, let value = currentInputValue {
-            input.text = executeOperation(tag: tag, pendingValue: value, currentValue: value)
-            currentInputValue = numberFormater.doubleFormat(input.text)
-            pendingValue = value
-        }
 
-        if let tag = pendingOperationTag, let pendingValue = pendingValue, let inputValue = currentInputValue {
-            input.text = executeOperation(tag: tag, pendingValue: pendingValue, currentValue: inputValue)
-            waitingActionOperationTag = pendingOperationTag
-            pendingOperationTag = nil
-            currentInputValue = numberFormater.doubleFormat(input.text)
-            self.pendingValue = inputValue
+    func addComa() -> Bool {
+        if waitingActionOperationTag != nil {
+            setPendingOperationTag()
+            return false
         }
+        return true
     }
 
-    private func executeOperation(tag: Int, pendingValue: Double, currentValue: Double) -> String? {
+    // MARK: - Private functions
+    private func executeOperation(tag: Int, pendingValue: Double, currentValue: Double) -> Double {
         switch tag {
         case 11:
-            return numberFormater.amount(pendingValue + currentValue)
+            return pendingValue + currentValue
         case 12:
-            return numberFormater.amount(pendingValue - currentValue)
+            return pendingValue - currentValue
         case 13:
-           return numberFormater.amount(pendingValue * currentValue)
+           return pendingValue * currentValue
         case 14:
-           return numberFormater.amount(pendingValue / currentValue)
+           return pendingValue / currentValue
         default:
-            return numberFormater.amount(0)
+            return 0
         }
+    }
+
+    private func setWaitingOperationTag(tag: Int, pending: Double, current: Double?) {
+        waitingActionOperationTag = tag
+        pendingOperationTag = nil
+        pendingValue = pending
+        inputValue = current
+    }
+
+    private func setPendingOperationTag() {
+        pendingOperationTag = waitingActionOperationTag
+        waitingActionOperationTag = nil
     }
 }

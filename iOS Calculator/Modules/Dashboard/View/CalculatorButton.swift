@@ -10,8 +10,11 @@ import UIKit
 
 class CalculatorButton: UIButton {
 
+    // MARK: - Properties
     private let style: CalculatorButtonInputStyle
     private let isWideButton: Bool
+
+    // MARK: - Life cycle
     init(style: CalculatorButtonInputStyle, isWideButton: Bool) {
         self.style = style
         self.isWideButton = isWideButton
@@ -21,6 +24,12 @@ class CalculatorButton: UIButton {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.masksToBounds = true
+        layer.cornerRadius = bounds.height / 2
     }
 
     private func setupView() {
@@ -35,14 +44,7 @@ class CalculatorButton: UIButton {
         }
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.masksToBounds = true
-        layer.cornerRadius = bounds.height / 2
-    }
-
-
-
+    // MARK: - Overrides
     override open var isSelected: Bool {
         didSet {
             if style == .action {
