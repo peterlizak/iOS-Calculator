@@ -30,6 +30,11 @@ class CalculatorButton: UIButton {
         super.layoutSubviews()
         layer.masksToBounds = true
         layer.cornerRadius = bounds.height / 2
+
+        if isWideButton {
+            contentHorizontalAlignment = .leading
+            contentEdgeInsets = UIEdgeInsets(top: 0, left: frame.width * 0.20, bottom: 0, right: 0);
+        }
     }
 
     private func setupView() {
