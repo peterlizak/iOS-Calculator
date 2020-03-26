@@ -12,19 +12,31 @@ import AVFoundation
 class DashboardViewController: UIViewController {
 
     // MARK: - UIObjects
-    @IBOutlet weak var verticalStackView: UIStackView! {
-        didSet {
-            verticalStackView.distribution = .fillEqually
-        }
-    }
-    @IBOutlet weak var input: UITextField! {
-        didSet {
-            input.attributedPlaceholder = NSAttributedString(string: "0", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-            input.tintColor = UIColor.black
-            // Pasting/copying should be enabled, for this one should implement the UITextField Delegate
-            input.isUserInteractionEnabled = false
-        }
-    }
+    private var verticalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        stackView.spacing = 15
+        return stackView
+    }()
+
+    private var input: UITextField = {
+        let input = UITextField()
+        input.translatesAutoresizingMaskIntoConstraints = false
+        input.attributedPlaceholder = NSAttributedString(string: "0", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        input.tintColor = UIColor.black
+        // Pasting/copying should be enabled, for this one should implement the UITextField Delegate
+        input.isUserInteractionEnabled = false
+        input.textColor = UIColor.white
+        input.font = UIFont.systemFont(ofSize: 97, weight: .thin)
+        input.textAlignment = .right
+        input.contentVerticalAlignment = .bottom
+        input.adjustsFontSizeToFitWidth = true
+        input.minimumFontSize = 30
+
+        return input
+    }()
 
     // MARK: - Properties
     private var horizontalStackView: UIStackView {
@@ -49,13 +61,20 @@ class DashboardViewController: UIViewController {
         setupContent()
     }
 
-    // MARK: - Setup
+    // MARK: - View Setup
     private func setupView() {
         view.backgroundColor = UIColor.black
         input.backgroundColor = UIColor.black
     }
 
     private func setupContent() {
+        view.addSubview(input)
+        view.addSubview(verticalStackView)
+        addConstraints()
+        setupCalculator()
+    }
+
+    private func setupCalculator() {
         for row in calculatorInput {
             let stackView = horizontalStackView
             for item in row {
@@ -71,11 +90,26 @@ class DashboardViewController: UIViewController {
     }
 
     private func setupButton(for input: CalculatorButtonInput) -> CalculatorButton{
-        let button = CalculatorButton(style: input.style, isWideButton: input.isWideButton)
-        button.addTarget(self, action: #selector(inputTapped), for: .touchUpInside)
-        button.setTitle(input.title, for: .normal)
-        button.tag = input.tag
-        return button
+           let button = CalculatorButton(style: input.style, isWideButton: input.isWideButton)
+           button.addTarget(self, action: #selector(inputTapped), for: .touchUpInside)
+           button.setTitle(input.title, for: .normal)
+           button.tag = input.tag
+           return button
+       }
+
+    private func addConstraints() {
+        input.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        input.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        input.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        input.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35).isActive = true
+
+        verticalStackView.topAnchor.constraint(equalTo: input.bottomAnchor, constant: 10).isActive = true
+        verticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        verticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        verticalStackView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor).isActive = true
+        let verticalStackViewBottomAnchor = verticalStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        verticalStackViewBottomAnchor.priority = UILayoutPriority(rawValue: 950)
+        verticalStackViewBottomAnchor.isActive = true
     }
 
     // MARK: - Input handling

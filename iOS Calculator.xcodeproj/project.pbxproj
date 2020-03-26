@@ -17,7 +17,6 @@
 		D07BCF9E242970F2000DF125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07BCF9D242970F2000DF125 /* Assets.xcassets */; };
 		D07BCFA1242970F2000DF125 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D07BCF9F242970F2000DF125 /* LaunchScreen.storyboard */; };
 		D07BCFAE24297474000DF125 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07BCFAC24297474000DF125 /* DashboardViewController.swift */; };
-		D07BCFAF24297474000DF125 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D07BCFAD24297474000DF125 /* DashboardViewController.xib */; };
 		D07BCFBD242A3D91000DF125 /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07BCFBC242A3D91000DF125 /* CalculatorButton.swift */; };
 		D07BCFC0242A44A1000DF125 /* CalculatorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07BCFBF242A44A1000DF125 /* CalculatorInput.swift */; };
 		D07C5C93242CD4F500B8DFE2 /* Decimial+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07C5C92242CD4F500B8DFE2 /* Decimial+Extension.swift */; };
@@ -36,7 +35,6 @@
 		D07BCFA0242970F2000DF125 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D07BCFA2242970F2000DF125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D07BCFAC24297474000DF125 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		D07BCFAD24297474000DF125 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		D07BCFBC242A3D91000DF125 /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
 		D07BCFBF242A44A1000DF125 /* CalculatorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorInput.swift; sourceTree = "<group>"; };
 		D07C5C92242CD4F500B8DFE2 /* Decimial+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimial+Extension.swift"; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				D07BCFAC24297474000DF125 /* DashboardViewController.swift */,
-				D07BCFAD24297474000DF125 /* DashboardViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,7 +220,6 @@
 			files = (
 				D07BCFA1242970F2000DF125 /* LaunchScreen.storyboard in Resources */,
 				D07BCF9E242970F2000DF125 /* Assets.xcassets in Resources */,
-				D07BCFAF24297474000DF125 /* DashboardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
