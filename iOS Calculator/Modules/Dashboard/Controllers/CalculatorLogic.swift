@@ -18,6 +18,11 @@ class CalculatorLogic {
     private var pendingValue: Double?
     private var inputValue: Double?
 
+    // MARK: - Public properties
+    var isPendingOperation: Bool {
+        return pendingOperationTag != nil
+    }
+
     // MARK: - Public functions
     func updateOperation(tag: Int, input: Double) -> Double? {
         if pendingOperationTag == nil {

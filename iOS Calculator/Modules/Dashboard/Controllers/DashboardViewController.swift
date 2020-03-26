@@ -46,13 +46,19 @@ class DashboardViewController: UIViewController {
         stackView.alignment = .fill
         return stackView
     }
-    private var calculatorInput: [[CalculatorButtonInputModel]] = CalculatorInput().input
     private let stackViewSpacing = (UIScreen.main.bounds.width / 100) * 3.5
     private let bottomSpacing = (UIScreen.main.bounds.height / 100) * 3
-    private lazy var calculatorLogic: CalculatorLogic = CalculatorLogic()
-    private let calculatorButtonTapSound: SystemSoundID = 1104
     private let backgroundColor = UIColor.black
+
+    private var calculatorInput: [[CalculatorButtonInputModel]] = CalculatorInput().input
+    private lazy var calculatorLogic: CalculatorLogic = CalculatorLogic()
     private let numberFormater = Formatter()
+
+    private weak var lastActiveOperatorButton: CalculatorButton?
+    private var selectLastActiveOperatorButton: Bool = false
+    private weak var clearButton: CalculatorButton?
+
+    private let calculatorButtonTapSound: SystemSoundID = 1104
 
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -81,6 +87,9 @@ class DashboardViewController: UIViewController {
                 let button = setupButtonCalculator(for: item)
                 stackView.addArrangedSubview(button)
 
+                if item.tag == 17 {
+                    clearButton = button
+                }
                 if item.isWideButton {
                     button.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.5, constant: -5).isActive = true
                 }
@@ -118,6 +127,10 @@ class DashboardViewController: UIViewController {
         let inputValue = prepareInputForProcessing(inputValue: input.text ?? "0")
         handleInput(tag: inputButton.tag, input: inputValue)
         handleButtonHighLight(inputButton: inputButton)
+
+        if (11...14).contains(inputButton.tag) {
+            lastActiveOperatorButton = inputButton
+        }
     }
 
     private func prepareInputForProcessing(inputValue: String) -> String {
@@ -137,18 +150,19 @@ class DashboardViewController: UIViewController {
         }  else if tag == 16 {
             addOposite(input: doubleValue)
         } else if tag == 17 {
-            reset()
+            reset(input: input)
         } else if tag == 18 {
             calculateResult(input: doubleValue)
         }
+        setClearButtonTitle()
     }
 
     private func updateNumber(tag: Int, stringValue: String) {
         if calculatorLogic.updateNumber(tag: tag) {
-            updateInputWith(value: "\(tag)")
+            updateInputWithString(value: "\(tag)")
         } else {
             if (stringValue + "\(tag)").count < 10 {
-                updateInputWith(value: stringValue + "\(tag)")
+                updateInputWithString(value: stringValue + "\(tag)")
             }
         }
     }
@@ -181,9 +195,22 @@ class DashboardViewController: UIViewController {
         updateInputWithDoubleValue(value: result)
     }
 
-    private func reset() {
-        calculatorLogic.reset()
-        updateInputWithDoubleValue(value: 0)
+    private func reset( input: String) {
+        if input != "0", input.count > 0 {
+            updateInputWithDoubleValue(value: 0)
+            selectLastActiveOperatorButton = true
+            return
+        } else  {
+            calculatorLogic.reset()
+        }
+    }
+
+    private func setClearButtonTitle() {
+        if (input.text == "0" || input.text == "") && !calculatorLogic.isPendingOperation {
+            clearButton?.setTitle("AC", for: .normal)
+        } else {
+            clearButton?.setTitle("C", for: .normal)
+        }
     }
 
     private func calculateResult(input: Double) {
@@ -193,7 +220,7 @@ class DashboardViewController: UIViewController {
     }
 
     // MARK: - TextField updating
-    private func updateInputWith(value: String) {
+    private func updateInputWithString(value: String) {
         let formater = numberFormater.userInputFormaterFor(stringValue: value)
 
         guard let doubleValue = Double(value) else {
@@ -220,5 +247,10 @@ class DashboardViewController: UIViewController {
             }
         }
         inputButton.isSelected = true
+
+        if selectLastActiveOperatorButton {
+            lastActiveOperatorButton?.isSelected = true
+            selectLastActiveOperatorButton = false
+        }
     }
 }
