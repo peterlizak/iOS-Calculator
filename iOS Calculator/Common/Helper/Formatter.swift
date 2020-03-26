@@ -21,11 +21,12 @@ class Formatter {
         formater.maximumIntegerDigits = 9 - (numberOfDecimials?.significantFractionalDecimalDigits ?? 0)
         formater.maximumFractionDigits = 9 - stringValue.components(separatedBy: ".")[0].count
         formater.minimumFractionDigits = (numberOfDecimials?.significantFractionalDecimalDigits ?? 0)
-        formater.maximumIntegerDigits = 9
         formater.minimumIntegerDigits = 1
+        formater.maximumIntegerDigits = 9
         formater.groupingSeparator = " "
-        formater.roundingMode = .down
+        formater.locale = Locale.current
         formater.numberStyle = .decimal
+        formater.roundingMode = .down
         return formater
     }
 
@@ -35,7 +36,7 @@ class Formatter {
     }
 
     func doubleFormat(_ amount: String?) -> Double? {
-        guard let amount = formatStringForDouble(amount) else { return nil}
+        guard let amount = amount else { return nil}
         return Double(amount)
     }
 
@@ -43,14 +44,10 @@ class Formatter {
         let numForm = formater(.decimal)
         numForm.maximumIntegerDigits = 12
         numForm.maximumFractionDigits = 12
-        return numForm.string(from: NSDecimalNumber(value: value))?.count ?? 0
+        return numForm.string(from: NSNumber(value: value))?.count ?? 0
     }
 
     // MARK: - Local functions
-    private func formatStringForDouble(_ string: String?) -> String? {
-        return string?.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: " ", with: "")
-    }
-
     private func formaterFor(value: Double) -> NumberFormatter {
         if getNumberOfItemsIn(value: value) > maximumNumberOfCharachters {
             return formater(.scientific)

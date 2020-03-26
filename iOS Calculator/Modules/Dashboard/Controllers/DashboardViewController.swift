@@ -34,7 +34,6 @@ class DashboardViewController: UIViewController {
         input.contentVerticalAlignment = .bottom
         input.adjustsFontSizeToFitWidth = true
         input.minimumFontSize = 30
-
         return input
     }()
 
@@ -142,7 +141,9 @@ class DashboardViewController: UIViewController {
         if calculatorLogic.updateNumber(tag: tag) {
             updateInputWith(value: "\(tag)")
         } else {
-            updateInputWith(value: stringValue + "\(tag)")
+            if (stringValue + "\(tag)").count < 10 {
+                updateInputWith(value: stringValue + "\(tag)")
+            }
         }
     }
 
@@ -150,7 +151,7 @@ class DashboardViewController: UIViewController {
         if calculatorLogic.addComa() {
             if inputValue == "" {
                 input.text = "0,"
-            } else if !inputValue.contains("."), inputValue.count < 11  {
+            } else if !inputValue.contains("."), inputValue.count < 9  {
                 input.text = inputValue + ","
             }
         } else {
@@ -159,8 +160,9 @@ class DashboardViewController: UIViewController {
     }
 
     private func updateOperation(tag: Int, doubleInput: Double) {
-        let result = calculatorLogic.updateOperation(tag: tag, input: doubleInput)
-        updateInputWithDoubleValue(value: result)
+        if let result = calculatorLogic.updateOperation(tag: tag, input: doubleInput) {
+            updateInputWithDoubleValue(value: result)
+        }
     }
 
     private func addPercentage(input: Double) {

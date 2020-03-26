@@ -129,7 +129,6 @@
 				D07BCFB0242974B5000DF125 /* Controllers */,
 				D07BCFB1242A0A35000DF125 /* View */,
 				D07BCFBE242A42FD000DF125 /* Model */,
-				D05BA3A4242A716F00C4A1A2 /* CalculatorLogic.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -138,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D07BCFAC24297474000DF125 /* DashboardViewController.swift */,
+				D05BA3A4242A716F00C4A1A2 /* CalculatorLogic.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

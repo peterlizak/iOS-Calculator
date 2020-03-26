@@ -19,15 +19,15 @@ class CalculatorLogic {
     private var inputValue: Double?
 
     // MARK: - Public functions
-    func updateOperation(tag: Int, input: Double) -> Double {
+    func updateOperation(tag: Int, input: Double) -> Double? {
         if pendingOperationTag == nil {
             setWaitingOperationTag(tag: tag, pending: input, current: nil)
-            return input
+            return nil
         }
 
         guard let pendingTag = pendingOperationTag, let pendigValue = pendingValue else {
             print("Update Operation error: pendingOperationTag or pendingValue is nil")
-            return input
+            return nil
         }
 
         let resultValue = executeOperation(tag: pendingTag, pendingValue: pendigValue, currentValue: input)
