@@ -216,6 +216,7 @@ class DashboardViewController: UIViewController {
     private func calculateResult(input: Double) {
         if let result = calculatorLogic.calculateResult(input: input) {
             updateInputWithDoubleValue(value: result)
+            lastActiveOperatorButton = nil
         }
     }
 
