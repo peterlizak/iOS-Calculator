@@ -58,7 +58,7 @@ class CalculatorLogic {
         }
 
         let resultVaue = executeOperation(tag: operationTag, pendingValue: pendingValue, currentValue: inputValue)
-        setWaitingOperationTag(tag: operationTag, pending: resultVaue, current: inputValue)
+        updateValuesAfterResult(pending: resultVaue, current: inputValue)
 
         return resultVaue
     }
@@ -66,6 +66,11 @@ class CalculatorLogic {
     func updateNumber(tag: Int) -> Bool {
         if waitingActionOperationTag != nil {
             setPendingOperationTag()
+            return true
+        }
+
+        if pendingOperationTag != nil {
+            reset()
             return true
         }
         return false
@@ -121,5 +126,10 @@ class CalculatorLogic {
     private func setPendingOperationTag() {
         pendingOperationTag = waitingActionOperationTag
         waitingActionOperationTag = nil
+    }
+
+    private func updateValuesAfterResult(pending: Double, current: Double) {
+        pendingValue = pending
+        inputValue = current
     }
 }
