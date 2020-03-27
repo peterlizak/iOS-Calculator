@@ -91,7 +91,7 @@ class CalculatorLogic {
         pendingOperationTag = nil
         pendingValue = nil
         inputValue = nil
-        isUserTyping = false
+        isUserTyping = true
     }
 
     func addComa() -> Bool {
