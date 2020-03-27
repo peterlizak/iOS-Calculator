@@ -150,7 +150,7 @@ class DashboardViewController: UIViewController {
         }  else if tag == 16 {
             addOposite(input: doubleValue)
         } else if tag == 17 {
-            reset(input: input)
+            clearOrReset(input: input)
         } else if tag == 18 {
             calculateResult(input: doubleValue)
         }
@@ -195,18 +195,18 @@ class DashboardViewController: UIViewController {
         updateInputWithDoubleValue(value: result)
     }
 
-    private func reset( input: String) {
-        if input != "0", input.count > 0 {
-            updateInputWithDoubleValue(value: 0)
+    private func clearOrReset( input: String) {
+        if input != "0", input.count > 0 && calculatorLogic.isUserTyping {
             selectLastActiveOperatorButton = true
-            return
         } else  {
             calculatorLogic.reset()
         }
+        updateInputWithDoubleValue(value: 0)
+
     }
 
     private func setClearButtonTitle() {
-        if (input.text == "0" || input.text == "") && !calculatorLogic.isPendingOperation {
+        if (input.text == "0" || input.text == "") && calculatorLogic.canDisplayCButton {
             clearButton?.setTitle("AC", for: .normal)
         } else {
             clearButton?.setTitle("C", for: .normal)

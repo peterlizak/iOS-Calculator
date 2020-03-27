@@ -19,13 +19,16 @@ class CalculatorLogic {
     private var inputValue: Double?
 
     // MARK: - Public properties
-    var isPendingOperation: Bool {
-        return pendingOperationTag != nil
+    var isUserTyping = false
+
+    var canDisplayCButton: Bool {
+        return pendingOperationTag == nil && waitingActionOperationTag == nil &&
+            pendingValue == nil && inputValue == nil
     }
 
     // MARK: - Public functions
     func updateOperation(tag: Int, input: Double) -> Double? {
-        if pendingOperationTag == nil {
+        if (pendingOperationTag == nil) || !isUserTyping {
             setWaitingOperationTag(tag: tag, pending: input, current: nil)
             return nil
         }
@@ -37,12 +40,10 @@ class CalculatorLogic {
 
         let resultValue = executeOperation(tag: pendingTag, pendingValue: pendigValue, currentValue: input)
         setWaitingOperationTag(tag: tag, pending: resultValue, current: input)
-
         return resultValue
     }
 
     func calculateResult(input: Double) -> Double? {
-        // Example case -> user goes like : 1 + =
         if inputValue == nil {
             inputValue = input
         }
@@ -69,10 +70,11 @@ class CalculatorLogic {
             return true
         }
 
-        if pendingOperationTag != nil {
+        if !isUserTyping {
             reset()
             return true
         }
+
         return false
     }
 
@@ -89,11 +91,11 @@ class CalculatorLogic {
         pendingOperationTag = nil
         pendingValue = nil
         inputValue = nil
+        isUserTyping = false
     }
 
-
     func addComa() -> Bool {
-        if waitingActionOperationTag != nil {
+        if !isUserTyping {
             setPendingOperationTag()
             return false
         }
@@ -121,15 +123,18 @@ class CalculatorLogic {
         pendingOperationTag = nil
         pendingValue = pending
         inputValue = current
+        isUserTyping = false
     }
 
     private func setPendingOperationTag() {
         pendingOperationTag = waitingActionOperationTag
         waitingActionOperationTag = nil
+        isUserTyping = true
     }
 
     private func updateValuesAfterResult(pending: Double, current: Double) {
         pendingValue = pending
         inputValue = current
+        isUserTyping = false
     }
 }
