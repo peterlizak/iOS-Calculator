@@ -19,7 +19,7 @@ class CalculatorLogic {
     private var inputValue: Double?
 
     // MARK: - Public properties
-    var isUserTyping = false
+    var isUserTyping = true
 
     var canDisplayCButton: Bool {
         return pendingOperationTag == nil && waitingActionOperationTag == nil &&
