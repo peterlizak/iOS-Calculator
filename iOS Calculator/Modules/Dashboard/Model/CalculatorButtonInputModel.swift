@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct CalculatorButtonInputModel {
     let style: CalculatorButtonInputStyle
     let isWideButton: Bool

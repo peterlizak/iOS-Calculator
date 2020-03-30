@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13, *) {
           // do only pure app launch stuff, not interface stuff, it is done in SceneDelegate
         } else {
@@ -25,4 +26,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-

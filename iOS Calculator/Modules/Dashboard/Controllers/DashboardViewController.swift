@@ -24,7 +24,7 @@ class DashboardViewController: UIViewController {
     private lazy var input: UITextField = {
         let input = UITextField()
         input.translatesAutoresizingMaskIntoConstraints = false
-        input.attributedPlaceholder = NSAttributedString(string: "0", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        input.attributedPlaceholder = NSAttributedString(string: "0", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         input.font = UIFont.systemFont(ofSize: (UIScreen.main.bounds.width / 100) * 25, weight: .thin)
         input.contentVerticalAlignment = .bottom
         input.adjustsFontSizeToFitWidth = true
@@ -98,7 +98,7 @@ class DashboardViewController: UIViewController {
         }
     }
 
-    private func setupButtonCalculator(for input: CalculatorButtonInputModel) -> CalculatorButton{
+    private func setupButtonCalculator(for input: CalculatorButtonInputModel) -> CalculatorButton {
            let button = CalculatorButton(style: input.style, isWideButton: input.isWideButton)
            button.addTarget(self, action: #selector(inputTapped), for: .touchUpInside)
            button.setTitle(input.title, for: .normal)
@@ -112,7 +112,7 @@ class DashboardViewController: UIViewController {
         input.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         input.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
 
-        verticalStackView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant:  -bottomSpacing).isActive = true
+        verticalStackView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -bottomSpacing).isActive = true
         verticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
         verticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         verticalStackView.topAnchor.constraint(equalTo: input.bottomAnchor, constant: 10).isActive = true
@@ -147,7 +147,7 @@ class DashboardViewController: UIViewController {
             updateOperation(tag: tag, input: doubleValue)
         } else if tag == 15 {
             addPercentage(input: doubleValue)
-        }  else if tag == 16 {
+        } else if tag == 16 {
             addOposite(input: doubleValue)
         } else if tag == 17 {
             clearOrReset(input: input)
@@ -171,7 +171,7 @@ class DashboardViewController: UIViewController {
         if calculatorLogic.addComa() {
             if inputValue == "" {
                 input.text = "0,"
-            } else if !inputValue.contains("."), inputValue.count < 9  {
+            } else if !inputValue.contains("."), inputValue.count < 9 {
                 input.text = inputValue + ","
             }
         } else {
@@ -198,7 +198,7 @@ class DashboardViewController: UIViewController {
     private func clearOrReset( input: String) {
         if input != "0", input.count > 0 && calculatorLogic.isUserTyping {
             selectLastActiveOperatorButton = true
-        } else  {
+        } else {
             calculatorLogic.reset()
         }
         updateInputWithDoubleValue(value: 0)
@@ -242,10 +242,8 @@ class DashboardViewController: UIViewController {
 
     // MARK: - UI changing actions
     private func handleButtonHighLight(inputButton: CalculatorButton) {
-        for button in self.verticalStackView.findViews(subclassOf: CalculatorButton.self) {
-            if button.isSelected {
-                button.isSelected = false
-            }
+        for button in self.verticalStackView.findViews(subclassOf: CalculatorButton.self) where button.isSelected {
+            button.isSelected = false
         }
         inputButton.isSelected = true
 

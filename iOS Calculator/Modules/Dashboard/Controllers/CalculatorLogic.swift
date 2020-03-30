@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class CalculatorLogic {
-    
+
     // MARK: - Properties
     private var numberFormater = Formatter()
     private var waitingActionOperationTag: Int?

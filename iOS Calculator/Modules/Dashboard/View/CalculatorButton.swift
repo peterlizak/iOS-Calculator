@@ -33,7 +33,7 @@ class CalculatorButton: UIButton {
 
         if isWideButton {
             contentHorizontalAlignment = .leading
-            contentEdgeInsets = UIEdgeInsets(top: 0, left: frame.width * 0.20, bottom: 0, right: 0);
+            contentEdgeInsets = UIEdgeInsets(top: 0, left: frame.width * 0.20, bottom: 0, right: 0)
         }
     }
 

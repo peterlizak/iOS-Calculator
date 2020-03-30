@@ -11,7 +11,7 @@ import Foundation
 class Formatter {
 
     // MARK: - Public Functions
-    func userInputFormaterFor(stringValue: String) -> NumberFormatter{
+    func userInputFormaterFor(stringValue: String) -> NumberFormatter {
         let numberOfDecimials = Decimal(string: stringValue)
         let formater = NumberFormatter()
         formater.maximumIntegerDigits = 9 - (numberOfDecimials?.significantFractionalDecimalDigits ?? 0)
@@ -36,7 +36,6 @@ class Formatter {
         guard let value = value else { return nil}
         return Double(value)
     }
-
 
     // MARK: - Local functions
     private func getNumberOfItemsIn(value: Double) -> Int {
