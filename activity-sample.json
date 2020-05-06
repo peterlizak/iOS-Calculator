@@ -1,0 +1,23 @@
+{
+    "activities": [{
+        "pages": [{
+            "highlight": 2,
+            "meiFilename": "OTD-1-chords-novice-1",
+            "type": {
+                "type": "inTime"
+            },
+            "description": "Let’s build these chords, starting with the root note."
+        }],
+        "endDate": 610477862.09606004,
+        "id": "624557EC-91BA-44C0-A834-FB214A57D711",
+        "startDate": 610477862.09606004,
+        "level": "one",
+        "sandboxType": {
+            "name": "Articulation"
+        },
+        "description": "Let’s build these chords, starting with the root note.",
+        "sequenceName": "Ode to Joy",
+        "name": "Playing Chords",
+        "index": 1
+    }]
+}
