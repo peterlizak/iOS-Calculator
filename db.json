@@ -1,23 +1,949 @@
 {
-    "activities": [{
-        "pages": [{
-            "highlight": 2,
-            "meiFilename": "OTD-1-chords-novice-1",
-            "type": {
-                "type": "inTime"
+   "activities":[
+      {
+         "pages":[
+            {
+               "highlight":2,
+               "meiFilename":"OTD-1-chords-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play through the score at the tempo that you’re comfortable with."
+               },
+               "description":"Let’s build these chords, starting with the root note."
             },
-            "description": "Let’s build these chords, starting with the root note."
-        }],
-        "endDate": 610477862.09606004,
-        "id": "624557EC-91BA-44C0-A834-FB214A57D711",
-        "startDate": 610477862.09606004,
-        "level": "one",
-        "sandboxType": {
-            "name": "Articulation"
-        },
-        "description": "Let’s build these chords, starting with the root note.",
-        "sequenceName": "Ode to Joy",
-        "name": "Playing Chords",
-        "index": 1
-    }]
+            {
+               "backingTrack":"OTJ melody",
+               "highlight":0,
+               "meiFilename":"OTD-full-piece-novice-1",
+               "description":"Let’s play the chords in the left hand. This will be performed in-time. The accompaniment part will play the right-hand melody.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"D5B1E92A-7060-4292-9798-3CCDA2ED3AAA",
+         "sandboxType":"Technique",
+         "level":"one",
+         "description":"Playing to build the foundation chords",
+         "sequenceName":"Ode to Joy",
+         "name":"Playing Chords",
+         "index":1
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"OTD-2-clap(out-of-time)-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the right hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping or speaking the right hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"OTJ - LH Novice 1",
+               "highlight":1,
+               "meiFilename":"OTD-full-piece-novice-1",
+               "description":"Clap or Speak the right hand rhythm, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            },
+            {
+               "highlight":0,
+               "meiFilename":"OTD-2-clap(out-of-time)-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the left hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping (or speaking ) the left hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"OTJ melody",
+               "highlight":0,
+               "meiFilename":"OTD-full-piece-novice-1",
+               "description":"Clap or Speak the left hand rhythm, in-time. The right hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"95164172-9344-4175-ABAA-045AA051CAE4",
+         "sandboxType":"Notation Reading",
+         "level":"two",
+         "description":"Clapping or speaking the rhythm",
+         "sequenceName":"Ode to Joy",
+         "name":"Clap or Speak the Rhythm",
+         "index":2
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"OTD-3-clap(out-of-time)-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play the right hand at the tempo that you’re comfortable with."
+               },
+               "description":"This activity will focus on playing the right hand part that contains the melody, out of time."
+            },
+            {
+               "backingTrack":"OTJ - LH Novice 1",
+               "highlight":1,
+               "meiFilename":"OTD-full-piece-novice-1",
+               "description":"This activity will focus on playing the right hand part that contains the melody, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"A1512F36-FF9F-4DC8-B3A5-7330D8158676",
+         "sandboxType":"Articulation",
+         "level":"three",
+         "description":"Playing the right hand part that contains the melody",
+         "sequenceName":"Ode to Joy",
+         "name":"Playing the Melody",
+         "index":3
+      },
+      {
+         "pages":[
+            {
+               "highlight":2,
+               "meiFilename":"OTD-1-chords-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play through the score at the tempo that you’re comfortable with."
+               },
+               "description":"Let’s build these chords, starting with the root note."
+            },
+            {
+               "backingTrack":"OTJ melody",
+               "highlight":0,
+               "meiFilename":"OTD-full-piece-novice-2",
+               "description":"Let’s play the chords in the left hand. This will be performed in-time. The accompaniment part will play the right-hand melody.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"7E66990D-CCAD-40CB-9ABB-D289FFBCD4F4",
+         "sandboxType":"Technique",
+         "level":"one",
+         "description":"Playing to build the foundation chords",
+         "sequenceName":"Ode to Joy",
+         "name":"Playing Chords",
+         "index":1
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"OTD-2-clap(out-of-time)-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the right hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping or speaking the right hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"OTJ - LH Novice 2",
+               "highlight":1,
+               "meiFilename":"OTD-full-piece-novice-2",
+               "description":"Clap or Speak the right hand rhythm, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            },
+            {
+               "highlight":0,
+               "meiFilename":"OTD-2-clap(out-of-time)-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the left hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping (or speaking ) the left hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"OTJ melody",
+               "highlight":0,
+               "meiFilename":"OTD-full-piece-novice-2",
+               "description":"Clap or Speak the left hand rhythm, in-time. The right hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"304FE711-722D-42D6-AB4B-BD983A48E860",
+         "sandboxType":"Notation Reading",
+         "level":"two",
+         "description":"Clapping or speaking the rhythm",
+         "sequenceName":"Ode to Joy",
+         "name":"Clap or Speak the Rhythm",
+         "index":2
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"OTD-3-clap(out-of-time)-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play the right hand at the tempo that you’re comfortable with."
+               },
+               "description":"This activity will focus on playing the right hand part that contains the melody, out of time."
+            },
+            {
+               "backingTrack":"OTJ - LH Novice 2",
+               "highlight":1,
+               "meiFilename":"OTD-full-piece-novice-2",
+               "description":"This activity will focus on playing the right hand part that contains the melody, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"0229B2D3-72E6-4C5A-B9CC-B810A8123AE9",
+         "sandboxType":"Articulation",
+         "level":"three",
+         "description":"Playing the right hand part that contains the melody",
+         "sequenceName":"Ode to Joy",
+         "name":"Playing the Melody",
+         "index":3
+      },
+      {
+         "pages":[
+            {
+               "highlight":2,
+               "meiFilename":"OTD-1-chords-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play through the score at the tempo that you’re comfortable with."
+               },
+               "description":"Let’s build these chords, starting with the root note."
+            },
+            {
+               "backingTrack":"OTJ melody",
+               "highlight":0,
+               "meiFilename":"OTD-full-piece-novice-3",
+               "description":"Let’s play the chords in the left hand. This will be performed in-time. The accompaniment part will play the right-hand melody.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"788C1F97-8DD4-422D-A01D-F5D2D9F9262A",
+         "sandboxType":"Technique",
+         "level":"one",
+         "description":"Playing to build the foundation chords",
+         "sequenceName":"Ode to Joy",
+         "name":"Playing Chords",
+         "index":1
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"OTD-2-clap(out-of-time)-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the right hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping or speaking the right hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"OTJ - LH Novice 3",
+               "highlight":1,
+               "meiFilename":"OTD-full-piece-novice-3",
+               "description":"Clap or Speak the right hand rhythm, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            },
+            {
+               "highlight":0,
+               "meiFilename":"OTD-2-clap(out-of-time)-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the left hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping (or speaking ) the left hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"OTJ melody",
+               "highlight":0,
+               "meiFilename":"OTD-full-piece-novice-3",
+               "description":"Clap or Speak the left hand rhythm, in-time. The right hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"AEF77361-F5D6-425F-9AAD-162BD9A2ABD4",
+         "sandboxType":"Notation Reading",
+         "level":"two",
+         "description":"Clapping or speaking the rhythm",
+         "sequenceName":"Ode to Joy",
+         "name":"Clap or Speak the Rhythm",
+         "index":2
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"OTD-3-clap(out-of-time)-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play the right hand at the tempo that you’re comfortable with."
+               },
+               "description":"This activity will focus on playing the right hand part that contains the melody, out of time."
+            },
+            {
+               "backingTrack":"OTJ - LH Novice 3",
+               "highlight":1,
+               "meiFilename":"OTD-full-piece-novice-3",
+               "description":"This activity will focus on playing the right hand part that contains the melody, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"F54C0EF0-1C36-44BC-A6FE-E2A60DC5F85D",
+         "sandboxType":"Articulation",
+         "level":"three",
+         "description":"Playing the right hand part that contains the melody",
+         "sequenceName":"Ode to Joy",
+         "name":"Playing the Melody",
+         "index":3
+      },
+      {
+         "pages":[
+            {
+               "highlight":2,
+               "meiFilename":"HBD-1-chords-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play through the score at the tempo that you’re comfortable with."
+               },
+               "description":"Let’s build these chords, starting with the root note."
+            },
+            {
+               "backingTrack":"HBD melody",
+               "highlight":0,
+               "meiFilename":"HBD-full-piece-novice-1",
+               "description":"Let’s play the chords in the left hand. This will be performed in-time. The accompaniment part will play the right-hand melody.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"5BFB1425-DF85-4231-B18E-FF13465DA7F3",
+         "sandboxType":"Technique",
+         "level":"one",
+         "description":"Playing to build the foundation chords",
+         "sequenceName":"Happy Birthday",
+         "name":"Playing Chords",
+         "index":1
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HBD-2-clap(out-of-time)-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the right hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping or speaking the right hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HBD - LH Novice 1",
+               "highlight":1,
+               "meiFilename":"HBD-full-piece-novice-1",
+               "description":"Clap or Speak the right hand rhythm, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            },
+            {
+               "highlight":0,
+               "meiFilename":"HBD-2-clap(out-of-time)-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the left hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping (or speaking ) the left hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HBD melody",
+               "highlight":0,
+               "meiFilename":"HBD-full-piece-novice-1",
+               "description":"Clap or Speak the left hand rhythm, in-time. The right hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"F25F3ABE-2413-4B16-B2B9-2407FC33C9C6",
+         "sandboxType":"Notation Reading",
+         "level":"two",
+         "description":"Clapping or speaking the rhythm",
+         "sequenceName":"Happy Birthday",
+         "name":"Clap or Speak the Rhythm",
+         "index":2
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HBD-3-clap(out-of-time)-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play the right hand at the tempo that you’re comfortable with."
+               },
+               "description":"This activity will focus on playing the right hand part that contains the melody, out of time."
+            },
+            {
+               "backingTrack":"HBD - LH Novice 1",
+               "highlight":1,
+               "meiFilename":"HBD-full-piece-novice-1",
+               "description":"This activity will focus on playing the right hand part that contains the melody, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"715646A0-18D7-4716-9EDD-0519F2E24491",
+         "sandboxType":"Articulation",
+         "level":"three",
+         "description":"Playing the right hand part that contains the melody",
+         "sequenceName":"Happy Birthday",
+         "name":"Playing the Melody",
+         "index":3
+      },
+      {
+         "pages":[
+            {
+               "highlight":2,
+               "meiFilename":"HBD-1-chords-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play through the score at the tempo that you’re comfortable with."
+               },
+               "description":"Let’s build these chords, starting with the root note."
+            },
+            {
+               "backingTrack":"HBD melody",
+               "highlight":0,
+               "meiFilename":"HBD-full-piece-novice-2",
+               "description":"Let’s play the chords in the left hand. This will be performed in-time. The accompaniment part will play the right-hand melody.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"BF7F9950-703B-4033-A5E1-DA88524FA596",
+         "sandboxType":"Technique",
+         "level":"one",
+         "description":"Playing to build the foundation chords",
+         "sequenceName":"Happy Birthday",
+         "name":"Playing Chords",
+         "index":1
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HBD-2-clap(out-of-time)-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the right hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping or speaking the right hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HBD - LH Novice 2",
+               "highlight":1,
+               "meiFilename":"HBD-full-piece-novice-2",
+               "description":"Clap or Speak the right hand rhythm, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            },
+            {
+               "highlight":0,
+               "meiFilename":"HBD-2-clap(out-of-time)-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the left hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping (or speaking ) the left hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HBD melody",
+               "highlight":0,
+               "meiFilename":"HBD-full-piece-novice-2",
+               "description":"Clap or Speak the left hand rhythm, in-time. The right hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"AE173865-3C64-4FC6-AF2C-32229523034D",
+         "sandboxType":"Notation Reading",
+         "level":"two",
+         "description":"Clapping or speaking the rhythm",
+         "sequenceName":"Happy Birthday",
+         "name":"Clap or Speak the Rhythm",
+         "index":2
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HBD-3-clap(out-of-time)-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play the right hand at the tempo that you’re comfortable with."
+               },
+               "description":"This activity will focus on playing the right hand part that contains the melody, out of time."
+            },
+            {
+               "backingTrack":"HBD - LH Novice 2",
+               "highlight":1,
+               "meiFilename":"HBD-full-piece-novice-2",
+               "description":"This activity will focus on playing the right hand part that contains the melody, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"3CB5BFEA-D453-455E-A7EE-6140EAC56BAA",
+         "sandboxType":"Articulation",
+         "level":"three",
+         "description":"Playing the right hand part that contains the melody",
+         "sequenceName":"Happy Birthday",
+         "name":"Playing the Melody",
+         "index":3
+      },
+      {
+         "pages":[
+            {
+               "highlight":2,
+               "meiFilename":"HBD-1-chords-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play through the score at the tempo that you’re comfortable with."
+               },
+               "description":"Let’s build these chords, starting with the root note."
+            },
+            {
+               "backingTrack":"HBD melody",
+               "highlight":0,
+               "meiFilename":"HBD-full-piece-novice-3",
+               "description":"Let’s play the chords in the left hand. This will be performed in-time. The accompaniment part will play the right-hand melody.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"DC14A26F-7E6C-43FB-9690-342C504B0482",
+         "sandboxType":"Technique",
+         "level":"one",
+         "description":"Playing to build the foundation chords",
+         "sequenceName":"Happy Birthday",
+         "name":"Playing Chords",
+         "index":1
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HBD-2-clap(out-of-time)-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the right hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping or speaking the right hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HBD - LH Novice 3",
+               "highlight":1,
+               "meiFilename":"HBD-full-piece-novice-3",
+               "description":"Clap or Speak the right hand rhythm, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            },
+            {
+               "highlight":0,
+               "meiFilename":"HBD-2-clap(out-of-time)-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the left hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping (or speaking ) the left hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HBD melody",
+               "highlight":0,
+               "meiFilename":"HBD-full-piece-novice-3",
+               "description":"Clap or Speak the left hand rhythm, in-time. The right hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"061B0D59-A9D3-4F37-AE99-F92DED9BDDBD",
+         "sandboxType":"Notation Reading",
+         "level":"two",
+         "description":"Clapping or speaking the rhythm",
+         "sequenceName":"Happy Birthday",
+         "name":"Clap or Speak the Rhythm",
+         "index":2
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HBD-3-clap(out-of-time)-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play the right hand at the tempo that you’re comfortable with."
+               },
+               "description":"This activity will focus on playing the right hand part that contains the melody, out of time."
+            },
+            {
+               "backingTrack":"HBD - LH Novice 3",
+               "highlight":1,
+               "meiFilename":"HBD-full-piece-novice-3",
+               "description":"This activity will focus on playing the right hand part that contains the melody, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"BB375303-B006-4B44-98EC-C68A57FFEABE",
+         "sandboxType":"Articulation",
+         "level":"three",
+         "description":"Playing the right hand part that contains the melody",
+         "sequenceName":"Happy Birthday",
+         "name":"Playing the Melody",
+         "index":3
+      },
+      {
+         "pages":[
+            {
+               "highlight":2,
+               "meiFilename":"HOUSE-1-chords(out-of-time)-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play through the score at the tempo that you’re comfortable with."
+               },
+               "description":"Let’s build these chords, starting with the root note."
+            },
+            {
+               "backingTrack":"HOUSE melody",
+               "highlight":0,
+               "meiFilename":"HOUSE-full-piece-novice-1",
+               "description":"Let’s play the chords in the left hand. This will be performed in-time. The accompaniment part will play the right-hand melody.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"A67B88AE-E851-4C16-893E-135E274E7358",
+         "sandboxType":"Technique",
+         "level":"one",
+         "description":"Playing to build the foundation chords",
+         "sequenceName":"House of the Rising Sun",
+         "name":"Playing Chords",
+         "index":1
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HOUSE-2-clap(out-of-time)-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the right hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping or speaking the right hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HOUSE - LH Novice 1",
+               "highlight":1,
+               "meiFilename":"HOUSE-full-piece-novice-1",
+               "description":"Clap or Speak the right hand rhythm, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            },
+            {
+               "highlight":0,
+               "meiFilename":"HOUSE-2-clap(out-of-time)-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the left hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping (or speaking ) the left hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HOUSE melody",
+               "highlight":0,
+               "meiFilename":"HOUSE-full-piece-novice-1",
+               "description":"Clap or Speak the left hand rhythm, in-time. The right hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"33B72CAA-EA8B-4D8F-BFE4-AE562BCAE245",
+         "sandboxType":"Notation Reading",
+         "level":"two",
+         "description":"Clapping or speaking the rhythm",
+         "sequenceName":"House of the Rising Sun",
+         "name":"Clap or Speak the Rhythm",
+         "index":2
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HOUSE-3-clap(out-of-time)-novice-1",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play the right hand at the tempo that you’re comfortable with."
+               },
+               "description":"This activity will focus on playing the right hand part that contains the melody, out of time."
+            },
+            {
+               "backingTrack":"HOUSE - LH Novice 1",
+               "highlight":1,
+               "meiFilename":"HOUSE-full-piece-novice-1",
+               "description":"This activity will focus on playing the right hand part that contains the melody, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"2B645D5A-731F-4065-958A-11C5D4BFB963",
+         "sandboxType":"Articulation",
+         "level":"three",
+         "description":"Playing the right hand part that contains the melody",
+         "sequenceName":"House of the Rising Sun",
+         "name":"Playing the Melody",
+         "index":3
+      },
+      {
+         "pages":[
+            {
+               "highlight":2,
+               "meiFilename":"HOUSE-1-chords(out-of-time)-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play through the score at the tempo that you’re comfortable with."
+               },
+               "description":"Let’s build these chords, starting with the root note."
+            },
+            {
+               "backingTrack":"HOUSE melody",
+               "highlight":0,
+               "meiFilename":"HOUSE-full-piece-novice-2",
+               "description":"Let’s play the chords in the left hand. This will be performed in-time. The accompaniment part will play the right-hand melody.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"2339C9D4-4D62-41D0-B7BB-B1F2493F386F",
+         "sandboxType":"Technique",
+         "level":"one",
+         "description":"Playing to build the foundation chords",
+         "sequenceName":"House of the Rising Sun",
+         "name":"Playing Chords",
+         "index":1
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HOUSE-2-clap(out-of-time)-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the right hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping or speaking the right hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HOUSE - LH Novice 2",
+               "highlight":1,
+               "meiFilename":"HOUSE-full-piece-novice-2",
+               "description":"Clap or Speak the right hand rhythm, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            },
+            {
+               "highlight":0,
+               "meiFilename":"HOUSE-2-clap(out-of-time)-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the left hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping (or speaking ) the left hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HOUSE melody",
+               "highlight":0,
+               "meiFilename":"HOUSE-full-piece-novice-2",
+               "description":"Clap or Speak the left hand rhythm, in-time. The right hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"B299DCF4-6790-4F81-BD0E-7D3A171DC569",
+         "sandboxType":"Notation Reading",
+         "level":"two",
+         "description":"Clapping or speaking the rhythm",
+         "sequenceName":"House of the Rising Sun",
+         "name":"Clap or Speak the Rhythm",
+         "index":2
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HOUSE-3-clap(out-of-time)-novice-2",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play the right hand at the tempo that you’re comfortable with."
+               },
+               "description":"This activity will focus on playing the right hand part that contains the melody, out of time."
+            },
+            {
+               "backingTrack":"HOUSE - LH Novice 2",
+               "highlight":1,
+               "meiFilename":"HOUSE-full-piece-novice-2",
+               "description":"This activity will focus on playing the right hand part that contains the melody, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"71674E38-2B46-4434-A4A6-EE59ADD398B9",
+         "sandboxType":"Articulation",
+         "level":"three",
+         "description":"Playing the right hand part that contains the melody",
+         "sequenceName":"House of the Rising Sun",
+         "name":"Playing the Melody",
+         "index":3
+      },
+      {
+         "pages":[
+            {
+               "highlight":2,
+               "meiFilename":"HOUSE-1-chords(out-of-time)-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play through the score at the tempo that you’re comfortable with."
+               },
+               "description":"Let’s build these chords, starting with the root note."
+            },
+            {
+               "backingTrack":"HOUSE melody",
+               "highlight":0,
+               "meiFilename":"HOUSE-full-piece-novice-3",
+               "description":"Let’s play the chords in the left hand. This will be performed in-time. The accompaniment part will play the right-hand melody.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"8402D627-4653-4EF4-A72E-C015A9F2E40C",
+         "sandboxType":"Technique",
+         "level":"one",
+         "description":"Playing to build the foundation chords",
+         "sequenceName":"House of the Rising Sun",
+         "name":"Playing Chords",
+         "index":1
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HOUSE-2-clap(out-of-time)-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the right hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping or speaking the right hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HOUSE - LH Novice 3",
+               "highlight":1,
+               "meiFilename":"HOUSE-full-piece-novice-3",
+               "description":"Clap or Speak the right hand rhythm, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            },
+            {
+               "highlight":0,
+               "meiFilename":"HOUSE-2-clap(out-of-time)-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Clap (or speak) the left hand rhythm at the tempo that you're comfortable with."
+               },
+               "description":"This activity will focus on clapping (or speaking ) the left hand rhythm, out-of-time."
+            },
+            {
+               "backingTrack":"HOUSE melody",
+               "highlight":0,
+               "meiFilename":"HOUSE-full-piece-novice-3",
+               "description":"Clap or Speak the left hand rhythm, in-time. The right hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"6D8A61FF-AF1C-4D70-BFF7-9AEAF3C8BD57",
+         "sandboxType":"Notation Reading",
+         "level":"two",
+         "description":"Clapping or speaking the rhythm",
+         "sequenceName":"House of the Rising Sun",
+         "name":"Clap or Speak the Rhythm",
+         "index":2
+      },
+      {
+         "pages":[
+            {
+               "highlight":1,
+               "meiFilename":"HOUSE-3-clap(out-of-time)-novice-3",
+               "type":{
+                  "type":"outOfTime",
+                  "text":"Play the right hand at the tempo that you’re comfortable with."
+               },
+               "description":"This activity will focus on playing the right hand part that contains the melody, out of time."
+            },
+            {
+               "backingTrack":"HOUSE - LH Novice 3",
+               "highlight":1,
+               "meiFilename":"HOUSE-full-piece-novice-3",
+               "description":"This activity will focus on playing the right hand part that contains the melody, in-time. The left hand part will accompany you in the background.",
+               "type":{
+                  "type":"inTime"
+               }
+            }
+         ],
+         "id":"30EDB3FE-BBC0-4C85-8BD3-92F6C4360AE4",
+         "sandboxType":"Articulation",
+         "level":"three",
+         "description":"Playing the right hand part that contains the melody",
+         "sequenceName":"House of the Rising Sun",
+         "name":"Playing the Melody",
+         "index":3
+      }
+   ]
 }
